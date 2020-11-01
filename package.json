@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "watch": "nodemon -e js,html --watch index.html --watch main.js --exec electron ./main.js"
+    "watch": "nodemon -e js,html --watch index.html --watch main.js --watch src/*.js --exec electron ./main.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^10.1.5",
+    "jquery": "^3.5.1",
     "nodemon": "^2.0.6"
   }
 }
