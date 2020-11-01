@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Memo</title>
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin: 0px;">
+		<div class="sidebar">
+			<div id="logo-div" style="text-align: center;">
+				<div>
+					<img id="logo" src="images/logo4.png">
+				</div>
+				<div>
+					<span style="font-size: 14px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">墨墨背单词</span>
+				</div>
+			</div>
+
+			<div id="sidebar-menu" style="margin-top: 25px;">
+				<a href="#">
+					<img src="images/search.png">
+					<span>词典</span>
+				</a>
+				<a href="#">
+					<img src="images/scan read.png">
+					<span>例句</span>
+				</a>
+				<a href="#">
+					<img src="images/scan read.png">
+					<span>助记</span>
+				</a>
+				<a href="#">
+					<img src="images/edit.png">
+					<span>云词本</span>
+				</a>
+			</div>
+
+		</div>
+		<div class="main">
+			<div id="status-bar">
+				<img id="user" src="images/user.png" style="background-color: #dbdbdb;">
+				<img id="down" src="images/down.png">
+				<img id="collapse" src="images/Collapse.png">
+				<img id= "close" src="images/Close.png">
+			</div>
+			<div id="show-more-lan">
+				<span id="text">英汉互译</span>
+				<img src="images/show_more.png">
+			</div>
+			<div id="search-div">
+				<input 
+					placeholder="请输入您要查询的单词..."
+				>
+			</div>
+			<div id="tools-menu">
+				<span class="tool-div dark">
+					<img src="images/doc-fill.png">
+					<span>文档翻译</span>
+				</span>
+				<span class="tool-div dark">
+					<img src="images/feeds-fill.png">
+					<span>英文批改</span>
+				</span>
+				<span class="tool-div dark">
+					<img src="images/camera-fill.png">
+					<span>截屏翻译</span>
+				</span>
+				<span class="tool-div" id="search">
+					<img src="images/editor.png">
+					<span>查 询</span>
+				</span>
+			</div>
+			<hr id="hr-line">
+			<div id="daily-phrase-div">
+				<div id="date">
+					<div id="day">
+						<span>1</span>
+					</div>
+					<div id="month">
+						<span>Nov.</span>
+					</div>
+				</div>
+				<div id="vr-line"></div>
+				<div class="phrase">
+					<div id="en">
+						<span>
+							Sometimes the thing you're searching for your whole life, it's right there by your side all along.
+						</span>
+					</div>
+					<div id="ch">
+						<span>
+							有时候你穷尽一生想要得到的，可能一直都在你身边。
+						</span>
+						<span id="hidden-img">
+							<img id="copy" src="images/copy.png">
+							<img id="sound" src="images/sound-filling.png">
+						</span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	<style>
+		/* The sidebar menu */
+		.sidebar {
+			height: 100%; /* Full-height: remove this if you want "auto" height */
+			width: 160px; /* Set the width of the sidebar */
+			position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+			z-index: 1; /* Stay on top */
+			top: 0; /* Stay at the top */
+			left: 0;
+			background-color: #33A086;
+			overflow-x: hidden; /* Disable horizontal scroll */
+			padding-top: 20px;
+			-webkit-app-region: drag;
+		}
+		#logo {
+			height: 50px;
+			width: 50px;
+		}
+		/* The navigation menu links */
+		.sidebar #sidebar-menu a {
+			padding: 8px 8px 10px 16px;
+			list-style-type: none;
+			text-decoration: none;
+			text-align: left;
+			font-size: 14px;
+			color: #f1f1f1;
+			display: block;
+			-webkit-app-region: no-drag
+		}
+		/* When you mouse over the navigation links, change their color */
+		#sidebar-menu a:hover {
+			color: #f1f1f1;
+			background-color: #26806b;
+		}
+		#sidebar-menu a img {
+			height: 25px;
+			width: 25px;
+			vertical-align: bottom;
+			margin-right: 5px;
+			margin-left: 15px;
+		}
+		/* Style page content */
+		.main {
+			height: 100%;
+			width: 620px;
+			position: fixed;
+			margin-left: 160px; /* Same as the width of the sidebar */
+			margin-right: 0px;
+			padding: 0px 10px;
+			-webkit-app-region: drag;
+		}
+		.main #status-bar {
+			width: fit-content;
+			margin-top: 16px;
+			-webkit-app-region: no-drag;
+			user-select: none;
+			margin-left: 500px;
+		}
+		.main #status-bar img {
+			vertical-align: middle;
+			height: 20px;
+			width: 20px;
+			margin-left: 10px;
+		}
+		.main #status-bar #user {
+			border-radius: 12px;
+			padding: 2px;
+			margin-left: 0px;
+		}
+		.main #status-bar #down {
+			height: 12px;
+			width: 12px;
+			margin-left: 0px;
+		}
+		.main #status-bar #down:hover {
+			filter: brightness(50%);
+		}
+		.main #status-bar #collapse:hover {
+			filter: brightness(50%);
+		}
+		.main #status-bar #close:hover {
+			filter: brightness(50%);
+		}
+		#show-more-lan {
+			user-select: none;
+			-webkit-app-region: no-drag;
+			width: fit-content;
+			margin-top: 35px;
+			margin-left: 16px;
+		}
+		#show-more-lan span {
+			font-size: 14px;
+			color: #707070;
+		}
+		#show-more-lan img {
+			height: 15px;
+			width: 15px;
+			vertical-align: middle;
+		}
+		#show-more-lan:hover {
+			filter: brightness(20%);
+		}
+		#search-div {
+			-webkit-app-region: no-drag;
+			background-color: #F7F8FA;
+			height: 90px;
+			margin-top: 23px;
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+		#search-div input {
+			height: 40px;
+			width: 590px;
+			margin-top: 2px;
+			margin-left: 5px;
+			margin-right: 5px;
+			font-size: 23px;
+			border: none;
+			outline: none;
+			background-color: #F7F8FA;
+			color: #707070;
+		}
+		#search-div input::placeholder {
+			color: #bfbfbf;
+		}
+		#tools-menu {
+			user-select: none;
+			-webkit-app-region: no-drag;
+			margin-top: 20px;
+			font-size: 14px;
+			margin-left: 16px;
+		}
+		#tools-menu .tool-div {
+			margin-right: 16px;
+		}
+		#tools-menu .tool-div span {
+			vertical-align: middle;
+			color: #707070;
+		}
+		#tools-menu .tool-div img {
+			height: 23px;
+			width: 23px;
+			vertical-align: middle;
+		}
+		#tools-menu .dark:hover {
+			filter: brightness(20%);
+		}
+		#tools-menu #search {
+			margin-left: 170px;
+		}
+		#tools-menu #search span{
+			background-color: #33A086;
+			color: #ffffff;
+			padding: 3px 24px 3px 24px;
+			border-radius: 2px;
+		}
+		#tools-menu #search img:hover {
+			filter: brightness(20%);
+		}
+		#tools-menu #search span:hover {
+			background-color: #52c5aa;
+		}
+		#hr-line {
+			border: 1px dashed #eeecec;
+			margin: 75px 16px 0px 16px;
+		}
+		#daily-phrase-div {
+			user-select: none;
+			-webkit-app-region: no-drag;
+			display: flex;
+			margin: 40px 16px 0px 16px;
+		}
+		#daily-phrase-div #date {
+			display: inline-flex;
+		}
+		#daily-phrase-div #date #day {
+			margin-left: 5px;
+			font-size: 62px;
+		}
+		#daily-phrase-div #date #month {
+			padding-top: 42px;
+			margin-left: 16px;
+			font-size: 20px;
+		}
+		#vr-line {
+			width: 2px;
+			background-color: #eeeeee;
+			margin-left: 16px;
+			margin-right: 16px;
+		}
+		.phrase {
+			font-size: 14px;
+			color:  #707070;
+		}
+		.phrase #ch {
+			margin-top: 16px;
+		}
+		.phrase #ch #hidden-img {
+			margin-left: 60px;
+			filter: opacity(0%);
+		}
+		.phrase #ch #hidden-img img {
+			height: 22px;
+			width: 22px;
+			vertical-align: middle;
+		}
+		.phrase:hover > #ch > #hidden-img {
+			filter: opacity(100%);
+		}
+		.phrase #ch #hidden-img #copy:hover {
+			filter: brightness(30%);
+		}
+		.phrase #ch #hidden-img #sound:hover {
+			filter: brightness(30%);
+		}
+		/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+		@media screen and (max-height: 450px) {
+			.sidebar {padding-top: 15px;}
+			.sidebar a {font-size: 18px;}
+		}
+	</style>
+</body>
+</html>
